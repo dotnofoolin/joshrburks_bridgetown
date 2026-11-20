@@ -13,6 +13,6 @@ class Shared::PostCard < Bridgetown::Component
     text = text.gsub(/\s+/, " ").strip
     return text if text.length <= 160
 
-    "#{text[0, 160].sub(/\s+\S*\z/, "")}…"
+    "#{text[0, 160].sub(/\s+\S*\z/, "")}..."
   end
 end
