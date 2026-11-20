@@ -1,17 +1,4 @@
-# Bridgetown Website README
-
-Welcome to your new Bridgetown website! You can update this README file to provide additional context and setup information for yourself or other contributors.
-
-## Table of Contents
-
-- [Bridgetown Website README](#bridgetown-website-readme)
-  - [Table of Contents](#table-of-contents)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Development](#development)
-    - [Commands](#commands)
-  - [Deployment](#deployment)
-  - [Contributing](#contributing)
+# joshrburks.com - Written in Bridgetown
 
 ## Prerequisites
 
@@ -25,16 +12,13 @@ Welcome to your new Bridgetown website! You can update this README file to provi
 ## Install
 
 ```sh
-cd bridgetown-site-folder
+cd joshrburks_bridgetown
 bundle install && npm install
 ```
-> Learn more: [Bridgetown Getting Started Documentation](https://www.bridgetownrb.com/docs/).
 
 ## Development
 
-To start your site in development mode, run `bin/bridgetown start` and navigate to [localhost:4000](https://localhost:4000/)!
-
-Check out [plugins](https://www.bridgetownrb.com/plugins/) if you're looking to add functionality or a theme to your site.
+To start the site in development mode, run `bin/bridgetown start` and navigate to [localhost:4000](https://localhost:4000/)
 
 ### Commands
 
@@ -49,21 +33,5 @@ bin/bridgetown deploy
 bin/bridgetown console
 ```
 
-> Learn more: [Bridgetown CLI Documentation](https://www.bridgetownrb.com/docs/command-line-usage)
-
 ## Deployment
 
-You can deploy Bridgetown sites on hosts like statichost.eu and Render as well as traditional web servers by simply building and copying the output folder to your HTML root.
-
-> Read the [Bridgetown Deployment Documentation](https://www.bridgetownrb.com/docs/deployment) for more information.
-
-## Contributing
-
-If repo is on GitHub:
-
-1. Fork it
-2. Clone the fork using `git clone` to your local development machine.
-3. Create your feature branch (`git checkout -b my-new-feature`)
-4. Commit your changes (`git commit -am 'Add some feature'`)
-5. Push to the branch (`git push origin my-new-feature`)
-6. Create a new Pull Request
