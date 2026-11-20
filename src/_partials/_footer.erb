@@ -1,10 +1,10 @@
 <footer class="site-footer">
   <div class="container">
-    <p>© <%= Time.now.year %> <%= metadata.title %>. Built loud with Bridgetown.</p>
+    <p>© <%= Time.now.year %> <%= metadata.title %>.</p>
     <ul class="footer-links">
       <li><a href="mailto:<%= metadata.email %>">Email</a></li>
       <% Array(metadata.social).each do |link| %>
-        <li><a href="<%= link["url"] %>" rel="me noopener"><%= link["label"] %></a></li>
+        <li><a href="<%= link["url"] %>" target="_blank" rel="me noopener noreferrer"><%= link["label"] %></a></li>
       <% end %>
     </ul>
   </div>

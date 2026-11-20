@@ -1,21 +1,19 @@
 # Site settings — available in templates as site.metadata.*
-# TODO: fill in your real details.
 
 title: Josh Burks
-tagline: Software engineer, builder, occasional writer
+tagline: About, Posts, etc.
 initials: JB
-role: Software Engineer
-email: hello@example.com
+role: Sr. Software Engineer
+email: dotnofoolin@gmail.com
 description: >-
-  Personal site and blog of Josh Burks — notes on software, building things,
-  and whatever else I'm tinkering with.
+  Personal site Josh Burks.
 
 # Optional: path to a headshot (e.g. /images/avatar.jpg). Falls back to initials.
-avatar:
+avatar: /images/headshot.jpg
 
 # Social links shown in the hero and footer. Remove any you don't use.
 social:
   - label: GitHub
-    url: https://github.com/
+    url: https://github.com/dotnofoolin
   - label: LinkedIn
-    url: https://www.linkedin.com/
+    url: https://www.linkedin.com/in/joshrburks/

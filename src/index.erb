@@ -7,16 +7,14 @@ title: Index
 
 <section class="card card-lg hero">
   <div>
-    <span class="badge">👋 Hey, I'm</span>
+    <span class="badge">Hey, I'm</span>
     <h1 style="margin-top: 1.25rem"><%= meta.title %></h1>
     <p class="lede">
-      <%# TODO: replace with your own intro %>
-      I'm a <strong><%= meta.role %></strong> who likes building useful things,
-      untangling messy problems, and writing down what I learn along the way.
+      A <strong><%= meta.role %></strong> for Textbook Technology. I'm a "jack of all trades - master of none" with a variety of full stack web apps and system adminstration.
     </p>
     <div class="hero-actions">
-      <a class="btn btn-blue" href="<%= relative_url '/posts' %>">Read the blog →</a>
-      <a class="btn btn-light" href="<%= relative_url '/about' %>">More about me</a>
+      <a class="btn btn-blue" href="<%= relative_url '/posts' %>">Posts...</a>
+      <a class="btn btn-light" href="<%= relative_url '/about' %>">More about me...</a>
     </div>
   </div>
 
@@ -28,30 +26,30 @@ title: Index
         <span aria-hidden="true"><%= meta.initials %></span>
       <% end %>
     </div>
-    <span class="badge avatar-sticker bg-fog">Open to chat</span>
+    <span class="badge avatar-sticker bg-fog">That's me!</span>
   </div>
 </section>
 
 <section class="section">
   <div class="section-head">
-    <h2>What I do</h2>
+    <h2>The Basics</h2>
   </div>
   <%# TODO: swap these for your own focus areas %>
   <div class="grid">
     <div class="card feature-card bg-steel">
-      <div class="feature-icon" aria-hidden="true">⚙️</div>
+      <div class="feature-icon" aria-hidden="true">🔨</div>
       <h3>Build</h3>
       <p>Web apps and the plumbing behind them — APIs, data, and the boring bits that keep things running.</p>
     </div>
     <div class="card feature-card bg-moss">
-      <div class="feature-icon" aria-hidden="true">🧭</div>
-      <h3>Lead</h3>
-      <p>Helping teams pick sensible paths, ship steadily, and leave the codebase better than they found it.</p>
+      <div class="feature-icon" aria-hidden="true">👂</div>
+      <h3>Listen</h3>
+      <p>Hearing users and their concerns and finding the best solution to tackle their problem.</p>
     </div>
     <div class="card feature-card bg-slate">
-      <div class="feature-icon" aria-hidden="true">✍️</div>
-      <h3>Write</h3>
-      <p>Notes from the trenches: what worked, what didn't, and what I'd do differently next time.</p>
+      <div class="feature-icon" aria-hidden="true">👫</div>
+      <h3>Live</h3>
+      <p>I treasure my family dearly, so it's important to me to be present when possible, lend a helping hand, and teach and guide my kids into their future.</p>
     </div>
   </div>
 </section>
@@ -73,10 +71,9 @@ title: Index
 </section>
 
 <section class="section card card-lg cta">
-  <h2>Let's talk</h2>
-  <p>Got a question, an idea, or just want to say hi? My inbox is open.</p>
+  <h2>Where to find me</h2>
   <div class="hero-actions">
-    <a class="btn" href="mailto:<%= meta.email %>">Send an email</a>
+    <a class="btn" href="mailto:<%= meta.email %>">Email</a>
     <% Array(meta.social).each do |link| %>
       <a class="btn btn-light" href="<%= link["url"] %>" rel="me noopener"><%= link["label"] %></a>
     <% end %>
