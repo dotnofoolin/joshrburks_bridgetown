@@ -1,0 +1,26 @@
+---
+layout: default
+title: Posts
+description: Writing on software, building things, and lessons learned.
+---
+<% posts = collections.posts.resources.sort_by(&:date).reverse %>
+
+<header class="page-header">
+  <h1>Posts</h1>
+  <p class="lede">Writing on software, building things, and lessons learned the hard way.</p>
+</header>
+
+<% if posts.any? %>
+  <% posts.group_by { _1.date.year }.each do |year, year_posts| %>
+    <section class="section" style="margin-top: 2.5rem">
+      <div class="section-head"><h2><%= year %></h2></div>
+      <div class="grid">
+        <% year_posts.each do |post| %>
+          <%= render Shared::PostCard.new(post: post) %>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+<% else %>
+  <div class="card empty-state"><p>No posts yet — check back soon.</p></div>
+<% end %>

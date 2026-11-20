@@ -1,0 +1,9 @@
+<a class="card post-card" href="<%= @post.relative_url %>">
+  <div class="meta">
+    <time datetime="<%= date.iso8601 %>"><%= date.strftime("%b %-d, %Y") %></time>
+    <% categories.each do |category| %><span class="tag"><%= category %></span><% end %>
+  </div>
+  <h3><%= title %></h3>
+  <p><%= excerpt %></p>
+  <span class="read-more">Read it →</span>
+</a>

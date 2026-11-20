@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "bridgetown",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "export PATH=$HOME/.local/share/mise/installs/ruby/3.3.5/bin:$PATH LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8; exec bin/bridgetown start -P 4001"],
+      "port": 4001
+    }
+  ]
+}

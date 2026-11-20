@@ -1,0 +1,84 @@
+---
+layout: default
+title: Index
+---
+<% meta = site.metadata %>
+<% posts = collections.posts.resources.sort_by(&:date).reverse %>
+
+<section class="card card-lg hero">
+  <div>
+    <span class="badge">👋 Hey, I'm</span>
+    <h1 style="margin-top: 1.25rem"><%= meta.title %></h1>
+    <p class="lede">
+      <%# TODO: replace with your own intro %>
+      I'm a <strong><%= meta.role %></strong> who likes building useful things,
+      untangling messy problems, and writing down what I learn along the way.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-pink" href="<%= relative_url '/posts' %>">Read the blog →</a>
+      <a class="btn btn-white" href="<%= relative_url '/about' %>">More about me</a>
+    </div>
+  </div>
+
+  <div class="hero-figure">
+    <div class="avatar">
+      <% if meta.avatar && !meta.avatar.to_s.empty? %>
+        <img src="<%= relative_url meta.avatar %>" alt="Photo of <%= meta.title %>" />
+      <% else %>
+        <span aria-hidden="true"><%= meta.initials %></span>
+      <% end %>
+    </div>
+    <span class="badge avatar-sticker bg-lime">Open to chat</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>What I do</h2>
+  </div>
+  <%# TODO: swap these for your own focus areas %>
+  <div class="grid">
+    <div class="card feature-card bg-cyan">
+      <div class="feature-icon" aria-hidden="true">⚙️</div>
+      <h3>Build</h3>
+      <p>Web apps and the plumbing behind them — APIs, data, and the boring bits that keep things running.</p>
+    </div>
+    <div class="card feature-card bg-lime">
+      <div class="feature-icon" aria-hidden="true">🧭</div>
+      <h3>Lead</h3>
+      <p>Helping teams pick sensible paths, ship steadily, and leave the codebase better than they found it.</p>
+    </div>
+    <div class="card feature-card bg-orange">
+      <div class="feature-icon" aria-hidden="true">✍️</div>
+      <h3>Write</h3>
+      <p>Notes from the trenches: what worked, what didn't, and what I'd do differently next time.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Latest posts</h2>
+    <a href="<%= relative_url '/posts' %>">See all →</a>
+  </div>
+  <% if posts.any? %>
+    <div class="grid">
+      <% posts.first(3).each do |post| %>
+        <%= render Shared::PostCard.new(post: post) %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="card empty-state"><p>No posts yet — check back soon.</p></div>
+  <% end %>
+</section>
+
+<section class="section card card-lg cta">
+  <h2>Let's talk</h2>
+  <p>Got a question, an idea, or just want to say hi? My inbox is open.</p>
+  <div class="hero-actions">
+    <a class="btn" href="mailto:<%= meta.email %>">Send an email</a>
+    <% Array(meta.social).each do |link| %>
+      <a class="btn btn-white" href="<%= link["url"] %>" rel="me noopener"><%= link["label"] %></a>
+    <% end %>
+  </div>
+</section>

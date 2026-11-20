@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<header class="post-header">
+  <div class="meta">
+    <time datetime="<%= resource.date.iso8601 %>"><%= resource.date.strftime("%B %-d, %Y") %></time>
+    <% Array(data.categories).each do |category| %>
+      <span class="tag"><%= category %></span>
+    <% end %>
+  </div>
+  <h1><%= data.title %></h1>
+  <% if data.description %><p class="lede"><%= data.description %></p><% end %>
+</header>
+
+<article class="post-body card card-lg prose">
+  <%= yield %>
+</article>
+
+<nav class="post-footer" aria-label="Post navigation">
+  <a class="btn btn-white" href="<%= relative_url '/posts' %>">← All posts</a>
+  <a class="btn btn-pink" href="mailto:<%= site.metadata.email %>?subject=<%= CGI.escape("Re: #{data.title}").gsub('+', '%20') %>">Reply by email</a>
+</nav>
