@@ -4,22 +4,26 @@
    ========================================================================== */
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
-  /* Ink + paper */
-  --ink: #000;
-  --paper: #fffdf5;
-  --surface: #fff;
-  --muted: #3b3b3b;
+  /* Page + ink */
+  --paper: #2b3236;        /* page background: charcoal slate */
+  --paper-dot: #4a555b;    /* dot-grid texture */
+  --on-paper: #e3e9e6;     /* text sitting directly on the page */
+  --on-paper-muted: #aeb9b4;
+  --ink: #0b0f11;          /* borders, shadows, text on cards */
+  --surface: #d3dad6;      /* default card fill: soft gray-green */
+  --muted: #3a4541;        /* secondary text on cards */
+  --code-bg: #e6ebe8;
 
-  /* Loud accents */
-  --yellow: #ffe066;
-  --pink: #ff90e8;
-  --cyan: #7df9ff;
-  --lime: #b8ff9f;
-  --orange: #ff9f5a;
-  --violet: #a388ee;
-  --red: #ff6b6b;
+  /* Muted accents */
+  --sage: #93b09a;
+  --moss: #6f8f74;
+  --steel: #84a2bb;
+  --sky: #a7bfcc;
+  --slate: #8796a1;
+  --fog: #b9c4c0;
+  --rust: #b98577;
 
   /* Brutal bits */
   --border-width: 3px;
@@ -52,11 +56,11 @@ html {
 body {
   margin: 0;
   background-color: var(--paper);
-  background-image: radial-gradient(var(--ink) 1px, transparent 1px);
+  background-image: radial-gradient(var(--paper-dot) 1px, transparent 1px);
   background-size: 22px 22px;
   background-position: -11px -11px;
   background-attachment: fixed;
-  color: var(--ink);
+  color: var(--on-paper);
   font-family: var(--font-body);
   font-size: 1.0625rem;
   line-height: 1.6;
@@ -72,7 +76,7 @@ body::before {
   position: fixed;
   inset: 0;
   background: var(--paper);
-  opacity: 0.82;
+  opacity: 0.7;
   z-index: -1;
   pointer-events: none;
 }
@@ -83,12 +87,12 @@ img {
 }
 
 ::selection {
-  background: var(--pink);
+  background: var(--sage);
   color: var(--ink);
 }
 
 :focus-visible {
-  outline: 3px dashed var(--ink);
+  outline: 3px dashed var(--sage);
   outline-offset: 4px;
 }
 
@@ -122,17 +126,18 @@ p {
 }
 
 a {
-  color: var(--ink);
+  color: inherit;
   font-weight: 700;
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 3px;
-  text-decoration-color: var(--pink);
+  text-decoration-color: var(--sage);
   transition: background-color 0.12s ease, text-decoration-color 0.12s ease;
 }
 
 a:hover {
-  background: var(--yellow);
+  background: var(--sage);
+  color: var(--ink);
   text-decoration-color: var(--ink);
 }
 
@@ -150,14 +155,16 @@ samp {
 }
 
 :not(pre) > code {
-  background: var(--cyan);
+  background: var(--sky);
+  color: var(--ink);
   border: 2px solid var(--ink);
   border-radius: 4px;
   padding: 0.05em 0.35em;
 }
 
 mark {
-  background: var(--yellow);
+  background: var(--sage);
+  color: var(--ink);
   padding: 0 0.2em;
 }
 
@@ -185,7 +192,7 @@ main {
    -------------------------------------------------------------------------- */
 
 .site-header {
-  background: var(--surface);
+  background: #22282b;
   border-bottom: var(--border);
   position: sticky;
   top: 0;
@@ -202,7 +209,9 @@ main {
   padding-bottom: 0.85rem;
 }
 
+/* brand sits on the dark header */
 .brand {
+  color: var(--on-paper);
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -214,6 +223,7 @@ main {
 
 .brand:hover {
   background: none;
+  color: var(--on-paper);
 }
 
 .brand-mark {
@@ -221,7 +231,8 @@ main {
   place-items: center;
   width: 2.75rem;
   height: 2.75rem;
-  background: var(--yellow);
+  background: var(--sage);
+  color: var(--ink);
   border: var(--border);
   border-radius: var(--radius);
   box-shadow: 3px 3px 0 0 var(--ink);
@@ -248,19 +259,20 @@ main {
   border: var(--border);
   border-radius: var(--radius);
   background: var(--surface);
+  color: var(--ink);
   text-decoration: none;
   box-shadow: 3px 3px 0 0 var(--ink);
   transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
 }
 
 .site-nav a:hover {
-  background: var(--cyan);
+  background: var(--sky);
   transform: translate(-2px, -2px);
   box-shadow: 5px 5px 0 0 var(--ink);
 }
 
 .site-nav a[aria-current="page"] {
-  background: var(--pink);
+  background: var(--steel);
 }
 
 /* --------------------------------------------------------------------------
@@ -268,8 +280,8 @@ main {
    -------------------------------------------------------------------------- */
 
 .site-footer {
-  background: var(--ink);
-  color: var(--paper);
+  background: #1b2023;
+  color: var(--on-paper-muted);
   border-top: var(--border);
 }
 
@@ -288,12 +300,12 @@ main {
 }
 
 .site-footer a {
-  color: var(--paper);
-  text-decoration-color: var(--yellow);
+  color: var(--on-paper);
+  text-decoration-color: var(--sage);
 }
 
 .site-footer a:hover {
-  background: var(--yellow);
+  background: var(--sage);
   color: var(--ink);
 }
 
@@ -312,6 +324,7 @@ main {
 
 .card {
   background: var(--surface);
+  color: var(--ink);
   border: var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -327,7 +340,7 @@ a.card,
 .card-link {
   display: block;
   text-decoration: none;
-  color: inherit;
+  color: var(--ink);
   font-weight: inherit;
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
@@ -354,7 +367,7 @@ a.card:active,
   font-size: 1rem;
   font-weight: 700;
   color: var(--ink);
-  background: var(--yellow);
+  background: var(--sage);
   border: var(--border);
   border-radius: var(--radius);
   box-shadow: 4px 4px 0 0 var(--ink);
@@ -364,7 +377,8 @@ a.card:active,
 }
 
 .btn:hover {
-  background: var(--yellow);
+  background: var(--sage);
+  color: var(--ink);
   transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0 0 var(--ink);
 }
@@ -374,16 +388,12 @@ a.card:active,
   box-shadow: 0 0 0 0 var(--ink);
 }
 
-.btn-pink {
-  background: var(--pink);
+.btn-blue,
+.btn-blue:hover {
+  background: var(--steel);
 }
-.btn-pink:hover {
-  background: var(--pink);
-}
-.btn-white {
-  background: var(--surface);
-}
-.btn-white:hover {
+.btn-light,
+.btn-light:hover {
   background: var(--surface);
 }
 
@@ -394,7 +404,8 @@ a.card:active,
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  background: var(--lime);
+  background: var(--sage);
+  color: var(--ink);
   border: 2px solid var(--ink);
   border-radius: 999px;
 }
@@ -404,24 +415,25 @@ a.card:active,
   padding: 0.3rem 0.8rem;
   font-weight: 700;
   font-size: 0.9rem;
-  background: var(--cyan);
+  background: var(--sky);
+  color: var(--ink);
   border: var(--border);
   border-radius: var(--radius);
   box-shadow: 3px 3px 0 0 var(--ink);
   transform: rotate(-2deg);
 }
 
-.bg-yellow { background: var(--yellow); }
-.bg-pink { background: var(--pink); }
-.bg-cyan { background: var(--cyan); }
-.bg-lime { background: var(--lime); }
-.bg-orange { background: var(--orange); }
-.bg-violet { background: var(--violet); }
-.bg-red { background: var(--red); }
+.bg-sage { background: var(--sage); }
+.bg-moss { background: var(--moss); }
+.bg-steel { background: var(--steel); }
+.bg-sky { background: var(--sky); }
+.bg-slate { background: var(--slate); }
+.bg-fog { background: var(--fog); }
+.bg-rust { background: var(--rust); }
 
 /* Highlighter swipe behind a word */
 .marker {
-  background: linear-gradient(transparent 55%, var(--pink) 55%);
+  background: linear-gradient(transparent 55%, var(--moss) 55%);
   padding: 0 0.1em;
 }
 
@@ -447,6 +459,7 @@ a.card:active,
   display: inline-block;
   padding: 0.25rem 0.75rem;
   background: var(--surface);
+  color: var(--ink);
   border: var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -461,7 +474,7 @@ a.card:active,
   grid-template-columns: minmax(0, 1fr) auto;
   gap: clamp(1.5rem, 5vw, 3.5rem);
   align-items: center;
-  background: var(--yellow);
+  background: var(--sage);
 }
 
 .hero h1 {
@@ -486,7 +499,8 @@ a.card:active,
   aspect-ratio: 1;
   display: grid;
   place-items: center;
-  background: var(--pink);
+  background: var(--steel);
+  color: var(--ink);
   border: var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
@@ -619,7 +633,8 @@ a.card:active,
   border: var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
-  background: var(--pink);
+  background: var(--steel);
+  color: var(--ink);
   transform: rotate(-1deg);
 }
 
@@ -687,7 +702,7 @@ a.card:active,
 .prose blockquote {
   margin: 2rem 0;
   padding: 1rem 1.5rem;
-  background: var(--lime);
+  background: var(--sage);
   border: var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -721,7 +736,7 @@ a.card:active,
 }
 
 .prose th {
-  background: var(--yellow);
+  background: var(--fog);
 }
 
 .prose pre,
@@ -731,7 +746,7 @@ a.card:active,
   padding: 1.25rem 1.5rem;
   font-size: 0.9rem;
   line-height: 1.55;
-  background: #fff8e1;
+  background: var(--code-bg);
   border: var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -750,7 +765,7 @@ a.card:active,
    -------------------------------------------------------------------------- */
 
 .cta {
-  background: var(--cyan);
+  background: var(--steel);
   text-align: center;
 }
 

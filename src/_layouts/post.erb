@@ -18,6 +18,6 @@ layout: default
 </article>
 
 <nav class="post-footer" aria-label="Post navigation">
-  <a class="btn btn-white" href="<%= relative_url '/posts' %>">← All posts</a>
-  <a class="btn btn-pink" href="mailto:<%= site.metadata.email %>?subject=<%= CGI.escape("Re: #{data.title}").gsub('+', '%20') %>">Reply by email</a>
+  <a class="btn btn-light" href="<%= relative_url '/posts' %>">← All posts</a>
+  <a class="btn btn-blue" href="mailto:<%= site.metadata.email %>?subject=<%= CGI.escape("Re: #{data.title}").gsub('+', '%20') %>">Reply by email</a>
 </nav>
