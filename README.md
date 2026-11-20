@@ -35,3 +35,4 @@ bin/bridgetown console
 
 ## Deployment
 
+Hosting on Netlify.
